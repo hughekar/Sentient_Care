@@ -16,21 +16,21 @@
     <body class="font-sans text-gray-900 antialiased bg-no-repeat bg-top"
           style="background-image: url('/images/sentient-bg.png'); background-size: 100% auto;">
 
-        <div class="min-h-screen flex flex-col justify-center items-center p-8">
-        
-        <div class="w-full max-w-md px-8 py-8
-                    bg-teal-600/20
-                    backdrop-blur-sm
-                    shadow-2xl
-                    rounded-2xl
-                    border border-teal-600/30">
-            {{ $slot }}
-        </div>
+        <div class="min-h-screen flex items-center justify-end">
 
-        </div>
+    <div class="w-full max-w-md px-8 py-8
+            bg-teal-600/20
+            backdrop-blur-sm
+            shadow-[0_8px_30px_rgba(0,0,0,0.25)]
+            rounded-2xl
+            border border-white/70
+            mr-12
+            text-white">
+        {{ $slot }}
+    </div>
+   </div>
 
     </body>
 </html>
-
 
 

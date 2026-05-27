@@ -38,6 +38,6 @@ class Patient extends Model
 
     public function caregivers()
     {
-        return $this->belongsToMany(Caregiver::class, 'caregiver_patient');
+        return $this->belongsToMany(\App\Models\User::class, 'caregiver_patient');
     }
 }

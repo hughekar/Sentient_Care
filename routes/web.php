@@ -18,4 +18,11 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::middleware(['auth'])->group(function () {
+    Route::get('/caregiver/dashboard', [\App\Http\Controllers\CaregiverDashboardController::class, 'index'])
+        ->name('caregiver.dashboard');
+});
+
+
 require __DIR__.'/auth.php';
+
