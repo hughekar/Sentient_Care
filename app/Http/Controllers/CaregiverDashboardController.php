@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
@@ -9,10 +8,15 @@ class CaregiverDashboardController extends Controller
 {
     public function index()
     {
-        dd(Auth::user());
         $caregiver = Auth::user();
-        $patients = $caregiver->patients()->orderBy('name')->get();
+         
+       $patients = $caregiver->patients()
+        ->orderBy('last_name')
+        ->orderBy('first_name')
+        ->get();
 
-        return view('caregiver.dashboard', compact('caregiver', 'patients'));
+
+        return view('caregiver_dashboard', compact('caregiver', 'patients'));
+
     }
 }

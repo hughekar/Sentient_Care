@@ -13,6 +13,30 @@ return Application::configure(basePath: dirname(__DIR__))
     )
 
     ->withMiddleware(function (Middleware $middleware): void {
+
+        /*
+        |--------------------------------------------------------------------------
+        | WEB MIDDLEWARE STACK
+        |--------------------------------------------------------------------------
+        | Laravel 12 does NOT load this automatically.
+        | Without this, sessions do NOT work and login ALWAYS fails.
+        */
+
+        $middleware->web([
+            \Illuminate\Cookie\Middleware\EncryptCookies::class,
+            \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
+            \Illuminate\Session\Middleware\StartSession::class,
+            \Illuminate\View\Middleware\ShareErrorsFromSession::class,
+            \Illuminate\Foundation\Http\Middleware\ValidateCsrfToken::class,
+            \Illuminate\Routing\Middleware\SubstituteBindings::class,
+        ]);
+
+        /*
+        |--------------------------------------------------------------------------
+        | API MIDDLEWARE
+        |--------------------------------------------------------------------------
+        */
+
         $middleware->api(prepend: [
             \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
         ]);

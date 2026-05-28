@@ -6,7 +6,7 @@ use App\Models\Caregiver;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
-class AuthController extends Controller
+class CaregiverController extends Controller
 {
     public function register(Request $request)
     {
